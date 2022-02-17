@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $.get("www/locales.json", function(data) {
+    $.get("www/i18n_locales.json", function(data) {
         i18next.init({
             lng: "en",
             resources: data
