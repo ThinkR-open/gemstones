@@ -1,0 +1,135 @@
+---
+title: "use_jqueryi18next.Rmd empty"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r development, include=FALSE}
+library(testthat)
+```
+
+```{r development-1}
+# Load already included functions
+pkgload::load_all(export_all = FALSE)
+```
+
+# use_jqueryi18next
+
+```{r function-use_jqueryi18next}
+#' use_jqueryi18next Title
+#'
+#' @return 1
+#' @export
+#'
+#' @examples
+use_jqueryi18next <- function(
+  pkg = golem::get_golem_wd(),
+  i18next_version = "21.6.11",
+  jquery_i18next_version = "1.2.1",
+  with_test = TRUE
+) {
+  rlang::is_installed("golem")
+  # Downloading the external resources
+  golem::use_external_js_file(
+    sprintf(
+      "https://cdn.jsdelivr.net/npm/i18next@%s/i18next.min.js",
+      i18next_version
+    ),
+    "i18next.min.js"
+  )
+  golem::use_external_js_file(
+    sprintf(
+      "https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/%s/jquery-i18next.min.js",
+      jquery_i18next_version
+    ),
+    "jquery-i18next.min.js"
+  )
+
+  # Putting stuff in the golem
+  golem::use_internal_file(
+    system.file(
+      "jqueryi18n/locales.json",
+      package = "jewels"
+    ),
+    "locales.json"
+  )
+  golem::use_internal_file(
+    system.file(
+      "jqueryi18n/shiny-i18n.js",
+      package = "jewels"
+    ),
+    "shiny-i18n.js"
+  )
+
+  file.copy(
+    system.file(
+      "jqueryi18n/fct_with_i18n.R",
+      package = "jewels"
+    ),
+    file.path(
+      pkg,
+      "R",
+      "fct_with_i18n.R"
+    )
+  )
+  if (with_test) {
+    rlang::is_installed("usethis")
+    usethis::use_testthat()
+    file.copy(
+      system.file(
+        "jqueryi18n/test-fct_with_i18n.R",
+        package = "jewels"
+      ),
+      file.path(
+        pkg,
+        "tests",
+        "testthat",
+        "test-fct_with_i18n.R"
+      )
+    )
+  }
+  invisible(TRUE)
+}
+```
+
+```{r examples-use_jqueryi18next}
+if (interactive()) {
+  use_jqueryi18next()
+}
+```
+
+```{r tests-use_jqueryi18next}
+test_that("use_jqueryi18next works", {
+  tpd <- tempdir()
+  oldwd <- setwd(tpd)
+  res <- golem::create_golem("i18test")
+  use_jqueryi18next(".")
+  expect_true(
+    file.exists("inst/app/www/i18next.min.js")
+  )
+  expect_true(
+    file.exists("inst/app/www/jquery-i18next.min.js")
+  )
+  expect_true(
+    file.exists("inst/app/www/locales.json")
+  )
+  expect_true(
+    file.exists("inst/app/www/shiny-i18n.js")
+  )
+  expect_true(
+    file.exists("R/fct_with_i18n.R")
+  )
+  expect_true(
+    file.exists("tests/testthat/test-fct_with_i18n.R")
+  )
+})
+```
+
+
+```{r development-inflate, eval=FALSE}
+# Run but keep eval=FALSE to avoid infinite loop
+# Execute in the console directly
+fusen::inflate(flat_file = "dev/flat_use_jqueryi18next.Rmd", vignette_name = NA)
+```
+
