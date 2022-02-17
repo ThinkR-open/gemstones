@@ -1,5 +1,5 @@
-test_that("with_i18 works", {
-  res <- with_i18("hello", "Helloworld")
+test_that("with_i18n works", {
+  res <- with_i18n("hello", "Helloworld")
   expect_true(
     inherits(res, "shiny.tag")
   )

@@ -9,7 +9,7 @@
 #' @example with_i18('Hello World!', 'hello-world')
 #'
 #' @noRd
-with_i18 <- function(
+with_i18n <- function(
   tag,
   i18n
 ) {
