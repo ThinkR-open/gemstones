@@ -83,7 +83,7 @@ change_language <- function(
 #'
 #' @noRd
 get_language <- function(
-  id,
+  id = "language",
   session = shiny::getDefaultReactiveDomain()
 ) {
   golem::invoke_js(
