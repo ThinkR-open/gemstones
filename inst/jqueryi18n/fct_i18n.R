@@ -69,3 +69,27 @@ change_language <- function(
     )
   )
 }
+
+#' Get language
+#'
+#' @description Get the i18n language
+#'
+#' @return Used for side-effect
+#'
+#' @param id The shiny id to get the language
+#' @param session Shiny session object
+#'
+#' @example get_language()
+#'
+#' @noRd
+get_language <- function(
+  id,
+  session = shiny::getDefaultReactiveDomain()
+) {
+  golem::invoke_js(
+    "Language",
+    list(
+      id = id
+    )
+  )
+}

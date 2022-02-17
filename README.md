@@ -44,8 +44,8 @@ This function will do the following:
     shiny app launched.
   - Add a `i18n_handlers.js` file, which are shiny custom message
     handlesr
-  - Add `fct_i18n.R`, which contains `with_i18n()`, `localize()` and
-    `change_language()`.
+  - Add `fct_i18n.R`, which contains `with_i18n()`, `localize()`,
+    `change_language()` & `get_language()`.
   - Add test for `with_i18n()`.
 
 ### How to use `jquery-i18next`

@@ -5,4 +5,10 @@ $(document).ready(function() {
     Shiny.addCustomMessageHandler('localize', function(arg) {
         $(arg.element).localize();
     })
+    Shiny.addCustomMessageHandler('Language', function(arg) {
+        Shiny.setInputValue(
+            arg.id,
+            i18next.language
+        )
+    })
 });
