@@ -1,4 +1,4 @@
 library(testthat)
-library(jewels)
+library(gemstones)
 
-test_check("jewels")
+test_check("gemstones")

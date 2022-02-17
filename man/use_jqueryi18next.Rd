@@ -2,7 +2,7 @@
 % Please edit documentation in R/use_jqueryi18next.R
 \name{use_jqueryi18next}
 \alias{use_jqueryi18next}
-\title{use_jqueryi18next Title}
+\title{use_jqueryi18next}
 \usage{
 use_jqueryi18next(
   pkg = golem::get_golem_wd(),
@@ -11,11 +11,18 @@ use_jqueryi18next(
   with_test = TRUE
 )
 }
+\arguments{
+\item{pkg}{Path to the root of the package. Default is \code{get_golem_wd()}.}
+
+\item{i18next_version, jquery_i18next_version}{Version of the modules}
+
+\item{with_test}{should the module be created with tests?}
+}
 \value{
-1
+TRUE invisibly
 }
 \description{
-use_jqueryi18next Title
+Add jqueryi18next to your app
 }
 \examples{
 if (interactive()) {

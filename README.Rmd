@@ -1,0 +1,102 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# gemstones
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Make your `{golem}` based app more beautifult with `{gemstones}`.
+
+## Installation
+
+You can install the development version of `{gemstones}` like so:
+
+``` r
+remotes::install_github("thinkr-open/gemstones")
+```
+
+## How it works 
+
+The goal of `{gemstones}` is to allow you to add some JavaScript libraries to your `{golem}` based app. 
+
+`{gemstones}` will automate the download and the linking of some JS libraries, but it's important to understand that __`{gemstones}` is not providing a full wrapper or widget for these libraries__. 
+You'll still have to code some elements to make it work. 
+
+Note also that the functions in this package are not intended to work outside of a `{golem}` based app. 
+
+### jquery-i18next
+
+Skeleton for [jquery-i18next](https://github.com/i18next/jquery-i18next) can be added with `gemstones::use_jqueryi18next()`. 
+
+This function will do the following: 
+
++ Download `i18next` & `jquery-i18next` from a CDN.
++ Add a `i18n_locales.json` file, which you can use to add your translation.
++ Add a `i18n_shiny.js` file, which will load the lib & data when your shiny app launched.
++ Add a `i18n_handlers.js` file, which are shiny custom message handlesr 
++ Add `fct_i18n.R`, which contains `with_i18n()`, `localize()` and `change_language()`.
++ Add test for `with_i18n()`.
+
+### How to use `jquery-i18next`
+
+This JS plugin provides client-side translation of the UI elements. 
+
+To define a translation, you need to follow this pattern: 
+
+```r
+gemstones::use_jqueryi18next()
+```
+
+```r
+# Add a i18n tag to your element
+h1("Hello") |> with_i18n("main_title")
+```
+
+```json
+{
+    "en": {
+        "translation": {
+            "main_title": "Hello World"
+        }
+    },
+    "fr": {
+        "translation": {
+            "main_title": "Wesh la famille"
+        }
+    }
+}
+```
+
+Then at app launch, this title will be translated. 
+
+To switch from one language to the other, you can use one of these two technics: 
+
++ Run code in JavaScript: 
+
+```javascript
+//  Set the language
+i18next.changeLanguage('fr')
+// Localize
+$("html").localize()
+```
+
++ Run code in R: 
+
+```r
+change_language("fr")
+localize("html")
+```
+

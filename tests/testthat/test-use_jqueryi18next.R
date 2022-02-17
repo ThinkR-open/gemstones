@@ -12,15 +12,18 @@ test_that("use_jqueryi18next works", {
     file.exists("inst/app/www/jquery-i18next.min.js")
   )
   expect_true(
-    file.exists("inst/app/www/locales.json")
+    file.exists("inst/app/www/i18n_locales.json")
   )
   expect_true(
-    file.exists("inst/app/www/shiny-i18n.js")
+    file.exists("inst/app/www/i18n_shiny.js")
   )
   expect_true(
-    file.exists("R/fct_with_i18n.R")
+    file.exists("inst/app/www/i18n_handlers.js")
   )
   expect_true(
-    file.exists("tests/testthat/test-fct_with_i18n.R")
+    file.exists("R/fct_i18n.R")
+  )
+  expect_true(
+    file.exists("tests/testthat/test-fct_i18n.R")
   )
 })

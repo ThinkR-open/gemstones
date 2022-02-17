@@ -19,13 +19,14 @@ fusen::fill_description(
     Title = "Make Your 'golem' app shine",
     Description = "Make Your 'golem' app shine.",
     `Authors@R` = c(
-      person("Colin", "Fay", email = "colin@thinkr.fr", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1565-9313")),
+      person("Colin", "Fay", email = "contact@colinfay.me", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-7343-1846")),
       person(given = "ThinkR", role = "cph")
     )
-  )
+  ),
+  overwrite = TRUE
 )
 # Define License with use_*_license()
-usethis::use_mit_license("Sébastien Rochette")
+usethis::use_mit_license("Colin Fay")
 ```
 
 # Start using git
@@ -42,7 +43,7 @@ usethis::git_vaccinate()
 # README
 usethis::use_readme_rmd()
 # Code of Conduct
-usethis::use_code_of_conduct("contact@fake.com")
+usethis::use_code_of_conduct("contact@colinfay.me")
 # NEWS
 usethis::use_news_md()
 ```

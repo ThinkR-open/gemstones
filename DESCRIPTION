@@ -1,15 +1,19 @@
-Package: jewels
-Version: 0.0.0.9000
+Package: gemstones
 Title: Make Your 'golem' App Shine
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Colin", "Fay", , "contact@colinfay.me", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7343-1846")),
+    person("ThinkR", role = "cph")
+  )
 Description: Make Your 'golem' app shine.
-Authors@R: c(person(given = "Colin",
-         family = "Fay",
-         role = c("aut", "cre"),
-         email = "colin@thinkr.fr",
-         comment = c(ORCID = "0000-0001-7343-1846")),
-  person(given = "ThinkR",
-         role = "cph"))
 License: MIT + file LICENSE
+Imports: 
+    golem,
+    rlang,
+    usethis
+Suggests: 
+    testthat
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
