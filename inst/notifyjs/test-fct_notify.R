@@ -20,4 +20,26 @@ test_that("with_i18n works", {
     ),
     "pouf"
   )
+
+  expect_equal(
+    notify_success(
+      "pif",
+      session = shiny::MockShinySession$new()
+    ),
+    NULL
+  )
+  expect_equal(
+    notify_warn(
+      "paf",
+      session = shiny::MockShinySession$new()
+    ),
+    NULL
+  )
+  expect_equal(
+    notify_error(
+      "pouf",
+      session = shiny::MockShinySession$new()
+    ),
+    NULL
+  )
 })
