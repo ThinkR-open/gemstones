@@ -1,22 +1,22 @@
 test_that("with_i18n works", {
   expect_equal(
     notify_success(
-      "pif", 
-      sessions = NULL
+      "pif",
+      session = NULL
     ),
     "pif"
   )
   expect_equal(
     notify_warn(
-      "paf", 
-      sessions = NULL
+      "paf",
+      session = NULL
     ),
     "paf"
   )
   expect_equal(
     notify_error(
-      "pouf", 
-      sessions = NULL
+      "pouf",
+      session = NULL
     ),
     "pouf"
   )
