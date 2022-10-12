@@ -4,10 +4,9 @@
 # gemstones
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
-Make your `{golem}` based app more beautifult with `{gemstones}`.
+Make your `{golem}` based apps more beautiful with `{gemstones}`.
 
 ## Installation
 
@@ -30,23 +29,42 @@ have to code some elements to make it work.
 Note also that the functions in this package are not intended to work
 outside of a `{golem}` based app.
 
-### jquery-i18next
+## Notifyjs
+
+Skeleton for [Notifyjs](https://notifyjs.jpillora.com/) can be added
+with `gemstones::use_notifyjs()`.
+
+This function will do the following:
+
+-   Download `notifyjs` from the website.
+-   Add a `notifyjs_handlers.js` file, which are shiny custom message
+    handlesr
+-   Add `fct_notifyjs.R`, which contains `notify_success()`,
+    `notify_warning()`, & `notify_error()`.
+-   Add tes.
+
+### How to use `notifyjs`
+
+This JS plugin provides notifications that can be sent and customize via
+the R functions defined in `fct_notifyjs.R`
+
+## jquery-i18next
 
 Skeleton for [jquery-i18next](https://github.com/i18next/jquery-i18next)
 can be added with `gemstones::use_jqueryi18next()`.
 
 This function will do the following:
 
-  - Download `i18next` & `jquery-i18next` from a CDN.
-  - Add a `i18n_locales.json` file, which you can use to add your
+-   Download `i18next` & `jquery-i18next` from a CDN.
+-   Add a `i18n_locales.json` file, which you can use to add your
     translation.
-  - Add a `i18n_shiny.js` file, which will load the lib & data when your
+-   Add a `i18n_shiny.js` file, which will load the lib & data when your
     shiny app launched.
-  - Add a `i18n_handlers.js` file, which are shiny custom message
+-   Add a `i18n_handlers.js` file, which are shiny custom message
     handlesr
-  - Add `fct_i18n.R`, which contains `with_i18n()`, `localize()`,
+-   Add `fct_i18n.R`, which contains `with_i18n()`, `localize()`,
     `change_language()` & `get_language()`.
-  - Add test for `with_i18n()`.
+-   Add test for `with_i18n()`.
 
 ### How to use `jquery-i18next`
 
@@ -83,9 +101,7 @@ Then at app launch, this title will be translated.
 To switch from one language to the other, you can use one of these two
 technics:
 
-  - Run code in JavaScript:
-
-<!-- end list -->
+-   Run code in JavaScript:
 
 ``` javascript
 //  Set the language
@@ -94,9 +110,7 @@ i18next.changeLanguage('fr')
 $("html").localize()
 ```
 
-  - Run code in R:
-
-<!-- end list -->
+-   Run code in R:
 
 ``` r
 change_language("fr")

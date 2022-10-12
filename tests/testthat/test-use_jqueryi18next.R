@@ -4,26 +4,27 @@ test_that("use_jqueryi18next works", {
   tpd <- tempdir()
   oldwd <- setwd(tpd)
   res <- golem::create_golem("i18test")
-  use_jqueryi18next(".")
-  expect_true(
-    file.exists("inst/app/www/i18next.min.js")
-  )
-  expect_true(
-    file.exists("inst/app/www/jquery-i18next.min.js")
-  )
-  expect_true(
-    file.exists("inst/app/www/i18n_locales.json")
-  )
-  expect_true(
-    file.exists("inst/app/www/i18n_shiny.js")
-  )
-  expect_true(
-    file.exists("inst/app/www/i18n_handlers.js")
-  )
-  expect_true(
-    file.exists("R/fct_i18n.R")
-  )
-  expect_true(
-    file.exists("tests/testthat/test-fct_i18n.R")
-  )
+  withr::with_dir("i18test", {
+    expect_true(
+      file.exists("inst/app/www/i18next.min.js")
+    )
+    expect_true(
+      file.exists("inst/app/www/jquery-i18next.min.js")
+    )
+    expect_true(
+      file.exists("inst/app/www/i18n_locales.json")
+    )
+    expect_true(
+      file.exists("inst/app/www/i18n_shiny.js")
+    )
+    expect_true(
+      file.exists("inst/app/www/i18n_handlers.js")
+    )
+    expect_true(
+      file.exists("R/fct_i18n.R")
+    )
+    expect_true(
+      file.exists("tests/testthat/test-fct_i18n.R")
+    )
+  })
 })
