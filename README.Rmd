@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-Make your `{golem}` based app more beautifult with `{gemstones}`.
+Make your `{golem}` based apps more beautiful with `{gemstones}`.
 
 ## Installation
 
@@ -37,7 +37,23 @@ You'll still have to code some elements to make it work.
 
 Note also that the functions in this package are not intended to work outside of a `{golem}` based app. 
 
-### jquery-i18next
+## Notifyjs
+
+Skeleton for [Notifyjs](https://notifyjs.jpillora.com/) can be added with `gemstones::use_notifyjs()`. 
+
+This function will do the following: 
+
++ Download `notifyjs` from the website.
++ Add a `notifyjs_handlers.js` file, which are shiny custom message handlesr 
++ Add `fct_notifyjs.R`, which contains `notify_success()`, `notify_warning()`, & `notify_error()`.
++ Add tes.
+
+### How to use `notifyjs`
+
+This JS plugin provides notifications that can be sent and customize via the R functions defined in `fct_notifyjs.R`
+
+
+## jquery-i18next
 
 Skeleton for [jquery-i18next](https://github.com/i18next/jquery-i18next) can be added with `gemstones::use_jqueryi18next()`. 
 

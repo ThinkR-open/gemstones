@@ -1,6 +1,6 @@
 Package: gemstones
 Title: Make Your 'golem' App Shine
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: c(
     person("Colin", "Fay", , "contact@colinfay.me", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7343-1846")),
@@ -9,11 +9,13 @@ Authors@R: c(
 Description: Make Your 'golem' app shine.
 License: MIT + file LICENSE
 Imports: 
-    golem,
-    rlang,
-    usethis
+    golem (>= 0.3.2),
+    rlang (>= 1.0.1),
+    usethis (>= 2.1.5)
 Suggests: 
-    testthat
+    testthat (>= 3.1.2),
+    withr (>= 2.4.3)
+Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
