@@ -3,8 +3,10 @@
 test_that("use_jqueryi18next works", {
   tpd <- tempdir()
   oldwd <- setwd(tpd)
-  res <- golem::create_golem("i18test")
-  withr::with_dir("i18test", {
+  unlink(file.path(tpd, "i18test"), TRUE, TRUE)
+  res <- golem::create_golem(file.path(tpd, "i18test"), open = FALSE)
+  setwd(file.path(tpd, "i18test"))
+  use_jqueryi18next(with_test = FALSE)
     expect_true(
       file.exists("inst/app/www/i18next.min.js")
     )
@@ -23,8 +25,5 @@ test_that("use_jqueryi18next works", {
     expect_true(
       file.exists("R/fct_i18n.R")
     )
-    expect_true(
-      file.exists("tests/testthat/test-fct_i18n.R")
-    )
-  })
+  setwd(oldwd)
 })

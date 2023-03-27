@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 # gemstones
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/ThinkR-open/gemstones/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ThinkR-open/gemstones/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 Make your `{golem}` based apps more beautiful with `{gemstones}`.
@@ -28,23 +30,47 @@ You can install the development version of `{gemstones}` like so:
 remotes::install_github("thinkr-open/gemstones")
 ```
 
-## How it works 
+## About
 
-The goal of `{gemstones}` is to allow you to add some JavaScript libraries to your `{golem}` based app. 
+You're reading the doc about version : `r pkgload::pkg_version()`
 
-`{gemstones}` will automate the download and the linking of some JS libraries, but it's important to understand that __`{gemstones}` is not providing a full wrapper or widget for these libraries__. 
-You'll still have to code some elements to make it work. 
+This README has been compiled on the
 
-Note also that the functions in this package are not intended to work outside of a `{golem}` based app. 
+```{r}
+Sys.time()
+```
+
+Here are the test & coverage results :
+
+```{r}
+devtools::check(quiet = TRUE)
+```
+
+```{r echo = FALSE}
+unloadNamespace("shinipsum")
+```
+
+```{r}
+covr::package_coverage()
+```
+
+## How it works
+
+The goal of `{gemstones}` is to allow you to add some JavaScript libraries to your `{golem}` based app.
+
+`{gemstones}` will automate the download and the linking of some JS libraries, but it's important to understand that __`{gemstones}` is not providing a full wrapper or widget for these libraries__.
+You'll still have to code some elements to make it work.
+
+Note also that the functions in this package are not intended to work outside of a `{golem}` based app.
 
 ## Notifyjs
 
-Skeleton for [Notifyjs](https://notifyjs.jpillora.com/) can be added with `gemstones::use_notifyjs()`. 
+Skeleton for [Notifyjs](https://notifyjs.jpillora.com/) can be added with `gemstones::use_notifyjs()`.
 
-This function will do the following: 
+This function will do the following:
 
 + Download `notifyjs` from the website.
-+ Add a `notifyjs_handlers.js` file, which are shiny custom message handlesr 
++ Add a `notifyjs_handlers.js` file, which are shiny custom message handlesr
 + Add `fct_notifyjs.R`, which contains `notify_success()`, `notify_warning()`, & `notify_error()`.
 + Add tes.
 
@@ -55,22 +81,22 @@ This JS plugin provides notifications that can be sent and customize via the R f
 
 ## jquery-i18next
 
-Skeleton for [jquery-i18next](https://github.com/i18next/jquery-i18next) can be added with `gemstones::use_jqueryi18next()`. 
+Skeleton for [jquery-i18next](https://github.com/i18next/jquery-i18next) can be added with `gemstones::use_jqueryi18next()`.
 
-This function will do the following: 
+This function will do the following:
 
 + Download `i18next` & `jquery-i18next` from a CDN.
 + Add a `i18n_locales.json` file, which you can use to add your translation.
 + Add a `i18n_shiny.js` file, which will load the lib & data when your shiny app launched.
-+ Add a `i18n_handlers.js` file, which are shiny custom message handlesr 
++ Add a `i18n_handlers.js` file, which are shiny custom message handlesr
 + Add `fct_i18n.R`, which contains `with_i18n()`, `localize()`, `change_language()` & `get_language()`.
 + Add test for `with_i18n()`.
 
 ### How to use `jquery-i18next`
 
-This JS plugin provides client-side translation of the UI elements. 
+This JS plugin provides client-side translation of the UI elements.
 
-To define a translation, you need to follow this pattern: 
+To define a translation, you need to follow this pattern:
 
 ```r
 gemstones::use_jqueryi18next()
@@ -96,11 +122,11 @@ h1("Hello") |> with_i18n("main_title")
 }
 ```
 
-Then at app launch, this title will be translated. 
+Then at app launch, this title will be translated.
 
-To switch from one language to the other, you can use one of these two technics: 
+To switch from one language to the other, you can use one of these two technics:
 
-+ Run code in JavaScript: 
++ Run code in JavaScript:
 
 ```javascript
 //  Set the language
@@ -109,7 +135,7 @@ i18next.changeLanguage('fr')
 $("html").localize()
 ```
 
-+ Run code in R: 
++ Run code in R:
 
 ```r
 change_language("fr")

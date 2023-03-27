@@ -4,6 +4,10 @@
 # gemstones
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/ThinkR-open/gemstones/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ThinkR-open/gemstones/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 Make your `{golem}` based apps more beautiful with `{gemstones}`.
@@ -14,6 +18,35 @@ You can install the development version of `{gemstones}` like so:
 
 ``` r
 remotes::install_github("thinkr-open/gemstones")
+```
+
+## About
+
+You’re reading the doc about version : 0.0.0.9001
+
+This README has been compiled on the
+
+``` r
+Sys.time()
+#> [1] "2023-03-27 13:26:46 CEST"
+```
+
+Here are the test & coverage results :
+
+``` r
+devtools::check(quiet = TRUE)
+#> ℹ Loading gemstones
+#> ── R CMD check results ─────────────────────────────── gemstones 0.0.0.9001 ────
+#> Duration: 7.7s
+#> 
+#> 0 errors ✔ | 0 warnings ✔ | 0 notes ✔
+```
+
+``` r
+covr::package_coverage()
+#> gemstones Coverage: 48.04%
+#> R/use_notifyjs.R: 0.00%
+#> R/use_jqueryi18next.R: 77.78%
 ```
 
 ## How it works
@@ -36,12 +69,12 @@ with `gemstones::use_notifyjs()`.
 
 This function will do the following:
 
--   Download `notifyjs` from the website.
--   Add a `notifyjs_handlers.js` file, which are shiny custom message
-    handlesr
--   Add `fct_notifyjs.R`, which contains `notify_success()`,
-    `notify_warning()`, & `notify_error()`.
--   Add tes.
+- Download `notifyjs` from the website.
+- Add a `notifyjs_handlers.js` file, which are shiny custom message
+  handlesr
+- Add `fct_notifyjs.R`, which contains `notify_success()`,
+  `notify_warning()`, & `notify_error()`.
+- Add tes.
 
 ### How to use `notifyjs`
 
@@ -55,16 +88,15 @@ can be added with `gemstones::use_jqueryi18next()`.
 
 This function will do the following:
 
--   Download `i18next` & `jquery-i18next` from a CDN.
--   Add a `i18n_locales.json` file, which you can use to add your
-    translation.
--   Add a `i18n_shiny.js` file, which will load the lib & data when your
-    shiny app launched.
--   Add a `i18n_handlers.js` file, which are shiny custom message
-    handlesr
--   Add `fct_i18n.R`, which contains `with_i18n()`, `localize()`,
-    `change_language()` & `get_language()`.
--   Add test for `with_i18n()`.
+- Download `i18next` & `jquery-i18next` from a CDN.
+- Add a `i18n_locales.json` file, which you can use to add your
+  translation.
+- Add a `i18n_shiny.js` file, which will load the lib & data when your
+  shiny app launched.
+- Add a `i18n_handlers.js` file, which are shiny custom message handlesr
+- Add `fct_i18n.R`, which contains `with_i18n()`, `localize()`,
+  `change_language()` & `get_language()`.
+- Add test for `with_i18n()`.
 
 ### How to use `jquery-i18next`
 
@@ -101,7 +133,7 @@ Then at app launch, this title will be translated.
 To switch from one language to the other, you can use one of these two
 technics:
 
--   Run code in JavaScript:
+- Run code in JavaScript:
 
 ``` javascript
 //  Set the language
@@ -110,7 +142,7 @@ i18next.changeLanguage('fr')
 $("html").localize()
 ```
 
--   Run code in R:
+- Run code in R:
 
 ``` r
 change_language("fr")
